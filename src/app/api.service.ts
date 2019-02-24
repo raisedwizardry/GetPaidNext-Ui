@@ -11,12 +11,24 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
+  public getBimonthlyFuturePayDate(stuff){
+    return this.httpClient.get<Date>(`${this.apiURL}/calculate/givendate/bimonthlypaydate/${stuff}`);
+  }
+
+  public getMonthlyFuturePayDate(stuff){
+    return this.httpClient.get<Date>(`${this.apiURL}/calculate/givendate/monthlypaydate/${stuff}`);
+  }
+  
   public getBiweeklyFuturePayDate(stuff){
     return this.httpClient.get<Date>(`${this.apiURL}/calculate/givendate/biweeklypaydate/${stuff}`);
   }
-
+  
   public getWeeklyFuturePayDate(stuff){
     return this.httpClient.get<Date>(`${this.apiURL}/calculate/givendate/weeklypaydate/${stuff}`);
+  }
+
+  public getBiweeklyFuturePayThreeMonth(stuff){
+    return this.httpClient.get<Date>(`${this.apiURL}/calculate/givendate/biweeklypaythree/${stuff}`);
   }
 }
 
